@@ -6,7 +6,7 @@ void clear() {cout << "\033c";}
 void pause() { //wait for user input
 	char input;
 	cout << "\n\n-- Press ENTER to continue --";
-	cin.ignore(5,'\n');
+	cin.ignore(5,'\n'); //needs this only if cin. will fix later
 	cin.ignore(5,'\n');
 	clear();
 }
@@ -27,4 +27,6 @@ int obtainInteger(int lower, int upper) {
 
 //PROMPT SYSTEM
 
-enum MENU {};
+// menu states
+enum MENU { init, convert, date, md, arc, mtp, quit };
+MENU menu = init;
