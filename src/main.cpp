@@ -78,7 +78,32 @@ void setup() {
 }
 
 
-int main() {
+int main(int argc, char* argv[]) {
+	// enter and exit with command line args only
+	if (argc > 1) {
+		if((string)argv[1] == "-h" || (string)argv[1] == "-H" || (string)argv[1] == "--help") {
+
+		}
+		else if (((string)argv[1] == "V" || (string)argv[1] == "v") && argc == 4) {
+			if((string)argv[3] == "-e" || (string)argv[3] == "-E" ||
+				 (string)argv[3] == "-d" || (string)argv[3] == "-D") {
+				std::string key;
+				std::cout << "Enter a master password: ";
+				std::cin >> key;
+				readInput(argv[2], key, ((string)argv[3] == "-e" || (string)argv[3] == "-E"));
+			} else if((string)argv[3] == "-r" || (string)argv[3] == "-R") {
+				restoreBak();
+			} else {
+				std::cout << "Invalid flag. Run --help for more info.\n";
+			}
+		} else {
+			std::cout << "Invalid flags. Run --help for more info.\n";
+		}
+		return 1;
+	}
+
+	// enter menu
+
 	while(menu != quit) {
 		setup();
 	}
