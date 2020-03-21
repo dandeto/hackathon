@@ -1,3 +1,4 @@
+#include <fstream>
 using namespace std;
 
 // Display utils
@@ -26,6 +27,28 @@ int obtainInteger(int lower, int upper) {
 }
 
 //PROMPT SYSTEM
+
+void filePrompt(string msg, ifstream& input) {
+	string filename;
+	cout << msg << "\n";
+	cin >> filename;
+	input.open(filename);
+
+	while(!input) {
+		cout << msg << "\n";
+		cin >> filename;
+		input.open(filename);
+	}
+}
+
+void readImage(ifstream& input) {
+	char data;
+	string type;
+	int i = 50;
+	while(input.get(data) && i--) { // fix this later
+		cout << data;
+	}
+}
 
 // menu states
 enum MENU { init, convert, date, md, arc, mtp, quit };

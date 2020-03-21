@@ -16,6 +16,7 @@ void setup() {
 					 << "[D] Date Hack\n"
 					 << "[M] Display Metadata attached to an image\n"
 					 << "[C] Crack a password protected archive with a dictionary attack\n"
+					 << "[V] Encrypt / Decrypt a file with a Vigenere Cipher\n"
 					 << "[P] Crack Many-Time-Pad encryption\n"
 					 << "[Q] Quit\n";
 			cin >> cmd;
@@ -35,6 +36,16 @@ void setup() {
 			cout << "converting goes here (maybe another menu) \n";
 			pause();
 			menu = init;
+		}
+		break;
+
+		case md:
+		{
+			//menu for metadata
+			ifstream input;
+			filePrompt("Enter the name or path to an image: ", input);
+			readImage(input);
+			
 		}
 		break;
 
