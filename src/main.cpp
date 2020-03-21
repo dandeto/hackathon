@@ -1,9 +1,6 @@
 #include <iostream>
 #include "utils.h"
-
-
-
-
+#include "vigenere.h"
 
 void setup() {
 	switch(menu) {
@@ -26,6 +23,7 @@ void setup() {
 			else if (cmd == "M" || cmd == "m") menu = md;
 			else if (cmd == "C" || cmd == "c") menu = arc;
 			else if (cmd == "P" || cmd == "p") menu = mtp;
+			else if (cmd == "V" || cmd == "v") menu = vig;
 			else if (cmd == "Q" || cmd == "q") menu = quit;
 			clear();
 		}
@@ -39,13 +37,35 @@ void setup() {
 		}
 		break;
 
+		case vig:
+		{
+			clear();
+
+			string cmd;
+			cout << "-- Vigenere Cipher --\n"
+					 << "[E] Encrypt\n"
+					 << "[D] Decrypt\n"
+					 << "[R] Restore Backup\n"
+					 << "[B] Back\n";
+			cin >> cmd;
+
+			if (cmd == "B" || cmd == "b") {
+				menu = init;
+				break;
+			}
+			clear();
+			if (cmd == "E" || cmd == "e") 		 readInput(true);
+			else if (cmd == "D" || cmd == "d") readInput(false);
+			else if (cmd == "R" || cmd == "r") restoreBak();
+		}
+		break;
+
 		case md:
 		{
 			//menu for metadata
 			ifstream input;
 			filePrompt("Enter the name or path to an image: ", input);
 			readImage(input);
-			
 		}
 		break;
 
@@ -63,6 +83,6 @@ int main() {
 		setup();
 	}
 	clear();
-	cout << "Goodbye! \xe2\x99\xa5\n";
+	cout << "\xe2\x99\xa5  Goodbye! \xe2\x99\xa5\n";
 	return 0;
 }

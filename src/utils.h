@@ -28,17 +28,27 @@ int obtainInteger(int lower, int upper) {
 
 //PROMPT SYSTEM
 
-void filePrompt(string msg, ifstream& input) {
+// PLEASE FIX THIS DONT FORGET
+string filePrompt(string msg, ifstream& input) {
 	string filename;
-	cout << msg << "\n";
-	cin >> filename;
-	input.open(filename);
 
-	while(!input) {
+	do {
 		cout << msg << "\n";
 		cin >> filename;
 		input.open(filename);
-	}
+	} while(!input);
+	return filename;
+}
+
+string filePrompt(string msg, ofstream& output) {
+	string filename;
+
+	do {
+		cout << msg << "\n";
+		cin >> filename;
+		output.open(filename);
+	} while(!output);
+	return filename;
 }
 
 void readImage(ifstream& input) {
@@ -51,5 +61,5 @@ void readImage(ifstream& input) {
 }
 
 // menu states
-enum MENU { init, convert, date, md, arc, mtp, quit };
+enum MENU { init, convert, date, md, arc, mtp, vig, quit };
 MENU menu = init;
