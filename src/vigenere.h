@@ -67,7 +67,7 @@ void readInput(bool e) {
 		cout << "Printing the first 50 characters of the "
 				 << (e ? "encrypted " : "decrypted ")
 				 << "file: " << filename << "\n\n"
-				 << buffer.substr (0,50) << "\n\n"
+				 << buffer.substr(0,50) << "\n\n"
 				 << "Delete the backup file?\n"
 				 << "[Y] Yes!\n"
 				 << "[N] No!\n";
@@ -92,4 +92,6 @@ void restoreBak() {
 	ofstream output(filename);
 	char data;
 	while(bak.get(data)) output << data;	
+	cout << "\nSuccess!";
+	pause();
 }
