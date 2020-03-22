@@ -92,4 +92,6 @@ void restoreBak() {
 	ofstream output(filename);
 	char data;
 	while(bak.get(data)) output << data;	
+	cout << "\nSuccess!";
+	pause();
 }

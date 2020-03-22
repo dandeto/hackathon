@@ -36,6 +36,7 @@ std::map<int, char> num_to_char = {
   { , 24 }, {, 25 }
 };*/
 
+// throw this in powerpoint
 std::map<int, float> num_to_freq = {
   { 0 , .08167 }, { 1 , .01492 }, { 2 , .02202 },
   { 3 , .04253 }, { 4 , .12702 }, { 5 , .02228 },
